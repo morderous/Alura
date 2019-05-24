@@ -12,8 +12,10 @@ namespace ByteBank.Funcionarios
         public string CPF { get; set; }
         public double Salario { get; set; }
 
-        public double GetBonificacao()
+        //virtual é palavra reservada para utlizar override nas classes filhas
+        public virtual double GetBonificacao() 
         {
+            // Bonificação do funcionário é 10%
             return Salario * 0.10; 
         }
     }
