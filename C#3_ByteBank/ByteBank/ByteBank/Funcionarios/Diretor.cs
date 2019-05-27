@@ -16,14 +16,10 @@ namespace ByteBank.Funcionarios
 
         public override void AumentarSalario()
         {
-            Salario *= 1.15;
+            Salario *= 0.15;
         }
         public override double GetBonificacao()
         {
-            // OLD - Bonificação do diretor é outro salário + a bonificação padrão dos funcionarios.
-            //return Salario + base.GetBonificacao(); 
-            // NEW - Agora é 50% de bonificação
-            // base é utilizado para chamar atributos ou metodos de classes mães
             return Salario * 0.5; 
         }
     }

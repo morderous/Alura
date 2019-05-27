@@ -30,10 +30,15 @@ namespace ByteBank
             GerenteDeConta camila = new GerenteDeConta("000.493.322-77");
             camila.Nome = "Camila da Cunha";
 
+            Desenvolvedor guilherme = new Desenvolvedor("287.632.948-01");
+            guilherme.Nome = "Guilherme da Silva";
+
             GerenciadorBonificacao.Registrar(pedro);
             GerenciadorBonificacao.Registrar(roberta);
             GerenciadorBonificacao.Registrar(igor);
             GerenciadorBonificacao.Registrar(camila);
+            GerenciadorBonificacao.Registrar(guilherme);
+
 
             Console.WriteLine("Total de bonificações concedidas no mês: " + GerenciadorBonificacao.GetTotalBonificacao());
 

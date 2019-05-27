@@ -20,18 +20,7 @@ namespace ByteBank.Funcionarios
             Salario = salario;
             TotalDeFuncionarios++;
         }
-
-        public virtual void AumentarSalario()
-        {
-            // 10% de aumento
-            Salario *= 1.5;
-        }
-
-        //virtual é palavra reservada para utlizar override nas classes filhas
-        public virtual double GetBonificacao() 
-        {
-            // Bonificação do funcionário é 10%
-            return Salario * 0.10; 
-        }
+        public abstract void AumentarSalario();
+        public abstract double GetBonificacao();
     }
 }
