@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Funcionarios;
+using ByteBank.Sistemas;
 
 namespace ByteBank
 {
@@ -11,9 +12,30 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-            CalcularBonificacao();
+            //CalcularBonificacao();
+            UsarSistema();
             Console.ReadLine();
         }
+
+        public static void UsarSistema()
+        {
+            SistemaInterno sistemaInterno = new SistemaInterno();
+
+            Diretor roberta = new Diretor("454.658.148-32");
+            roberta.Nome = "Roberta Mathiussi";
+            roberta.Senha = "123";
+
+            GerenteDeConta camila = new GerenteDeConta("000.493.322-77");
+            camila.Nome = "Camila da Cunha";
+            camila.Senha = "12345";
+
+            sistemaInterno.Logar(roberta, "123");
+            sistemaInterno.Logar(roberta, "abc");
+
+            sistemaInterno.Logar(camila, "12345");
+
+        }
+
         public static void CalcularBonificacao()
         {
             GerenciadorBonificacao GerenciadorBonificacao = new GerenciadorBonificacao();

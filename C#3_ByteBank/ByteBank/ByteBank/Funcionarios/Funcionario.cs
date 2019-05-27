@@ -13,7 +13,6 @@ namespace ByteBank.Funcionarios
         public string CPF { get; private set; }
         public double Salario { get; protected set; }
 
-        //construtor da classe mãe que obriga a informar um cpf por parametro
         public Funcionario(double salario,  string cpf)
         {
             CPF = cpf;
