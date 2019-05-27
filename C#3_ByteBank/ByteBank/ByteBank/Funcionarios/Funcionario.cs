@@ -11,13 +11,20 @@ namespace ByteBank.Funcionarios
         public static int TotalDeFuncionarios { get; private set; }
         public string Nome { get; set; }
         public string CPF { get; private set; }
-        public double Salario { get; set; }
+        public double Salario { get; protected set; }
 
         //construtor da classe mãe que obriga a informar um cpf por parametro
-        public Funcionario(string cpf)
+        public Funcionario(double salario,  string cpf)
         {
             CPF = cpf;
+            Salario = salario;
             TotalDeFuncionarios++;
+        }
+
+        public virtual void AumentarSalario()
+        {
+            // 10% de aumento
+            Salario *= 1.5;
         }
 
         //virtual é palavra reservada para utlizar override nas classes filhas
