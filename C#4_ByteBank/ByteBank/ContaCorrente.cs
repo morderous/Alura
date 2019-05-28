@@ -31,16 +31,18 @@ namespace ByteBank
             }
         }
 
-        public ContaCorrente(int agencia, int numero)
+        public ContaCorrente(int numeroAgencia, int numeroConta)
         {
-            if (agencia <= 0)
+            if (numeroAgencia <= 0)
             {
-                throw new ArgumentException("Agencia invalida.");
+                throw new ArgumentException("Agencia invalida.", "numeroAgencia");
             }
-            if (numero <= 0)
+            if (numeroConta <= 0)
             {
-                throw new ArgumentException("Conta invalida.");
+                throw new ArgumentException("Conta invalida.", "numeroConta");
             }
+            Agencia = numeroAgencia;
+            Numero = numeroConta;
             TaxaOperacao = 30 / TotalDeContasCriadas;
             TotalDeContasCriadas++;
         }
