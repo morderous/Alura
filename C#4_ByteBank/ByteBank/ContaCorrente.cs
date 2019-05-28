@@ -1,5 +1,7 @@
 ﻿// using _05_ByteBank;
 
+using System;
+
 namespace ByteBank
 {
     public class ContaCorrente
@@ -8,29 +10,10 @@ namespace ByteBank
         public Cliente Titular { get; set; }
 
         public static int TotalDeContasCriadas { get; private set; }
-
-
-        private int _agencia;
-        public int Agencia
-        {
-            get
-            {
-                return _agencia;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    return;
-                }
-
-                _agencia = value;
-            }
-        }
-        public int Numero { get; set; }
+        public int Agencia { get; }
+        public int Numero { get; }
 
         private double _saldo = 100;
-
         public double Saldo
         {
             get
@@ -48,17 +31,19 @@ namespace ByteBank
             }
         }
 
-
         public ContaCorrente(int agencia, int numero)
         {
-            Agencia = agencia;
-            Numero = numero;
-
+            if (agencia <= 0)
+            {
+                throw new ArgumentException("Agencia invalida.");
+            }
+            if (numero <= 0)
+            {
+                throw new ArgumentException("Conta invalida.");
+            }
             TaxaOperacao = 30 / TotalDeContasCriadas;
-
             TotalDeContasCriadas++;
         }
-
 
         public bool Sacar(double valor)
         {
