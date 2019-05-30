@@ -10,8 +10,67 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            GravarUsandoAdoNet();
+            //GravarUsandoAdoNet();
+            GravarUsandoEntity();
+            RecuperarProdutos();
+            ExcluirProdutos();
+
+            Console.WriteLine("feito");
+            Console.ReadLine();
         }
+
+        private static void ExcluirProdutos()
+        {
+            using (var repo = new LojaContext())
+            {
+                IList<Produto> produtos = repo.Produtos.ToList();
+                foreach (var item in produtos)
+                {
+                    repo.Produtos.Remove(item);
+                }
+                repo.SaveChanges();
+            }
+        }
+
+        private static void RecuperarProdutos()
+        {
+            using (var repo = new LojaContext())
+            {
+                IList<Produto> produtos = repo.Produtos.ToList();
+                Console.WriteLine("foram encontradors {0} produto(s)." , produtos.Count);
+                foreach (var item in produtos)
+                {
+                    Console.WriteLine(item.Nome);
+                }
+            }
+        }
+
+        private static void GravarUsandoEntity()
+        {
+            Produto p1 = new Produto();
+            p1.Nome = "Harry Potter e a Ordem da Fênix";
+            p1.Categoria = "Livros";
+            p1.Preco = 19.89;
+
+            Produto p2 = new Produto();
+            p2.Nome = "Senhor dos Anéis 1";
+            p2.Categoria = "Livros";
+            p2.Preco = 19.89;
+
+            Produto p3 = new Produto();
+            p3.Nome = "O Monge e o Executivo";
+            p3.Categoria = "Livros";
+            p3.Preco = 19.89;
+
+            using (var contexto = new LojaContext())
+            {
+                contexto.Produtos.Add(p1);
+                contexto.Produtos.Add(p2);
+                contexto.Produtos.Add(p3);
+                contexto.SaveChanges();
+            }
+        }
+
 
         private static void GravarUsandoAdoNet()
         {
