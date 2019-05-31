@@ -18,14 +18,21 @@ namespace Alura.Loja.Testes.ConsoleApp
                     Console.WriteLine(p);
                 }
 
-                foreach(var e in contexto.ChangeTracker.Entries())
+                Console.WriteLine("==============================");
+                foreach (var e in contexto.ChangeTracker.Entries())
                 {
                     Console.WriteLine(e.State);
                 }
 
 
-                //var p1 = produtos.First();
-                //p1.Nome = "Harry Potter";
+                var p1 = produtos.Last();
+                p1.Nome = "007 - Quantum of Solace";
+
+                Console.WriteLine("==============================");
+                foreach (var e in contexto.ChangeTracker.Entries())
+                {
+                    Console.WriteLine(e.State);
+                }
 
                 //contexto.SaveChanges();
 
