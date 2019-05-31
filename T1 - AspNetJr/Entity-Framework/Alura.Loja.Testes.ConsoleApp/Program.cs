@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,45 +14,36 @@ namespace Alura.Loja.Testes.ConsoleApp
             using (var contexto = new LojaContext())
             {
                 var produtos = contexto.Produtos.ToList();
-                foreach (var p in produtos)
+
+                ExibeEntries(contexto.ChangeTracker.Entries());
+
+                var novoProduto = new Produto()
                 {
-                    Console.WriteLine(p);
-                }
+                    Nome = "Desinfetante",
+                    Categoria = "Limpeza",
+                    Preco = 3.99
+                };
+                contexto.Produtos.Add(novoProduto);
 
-                Console.WriteLine("==============================");
-                foreach (var e in contexto.ChangeTracker.Entries())
-                {
-                    Console.WriteLine(e.State);
-                }
+                ExibeEntries(contexto.ChangeTracker.Entries());
 
+                contexto.SaveChanges();
 
-                var p1 = produtos.Last();
-                p1.Nome = "007 - Quantum of Solace";
-
-                Console.WriteLine("==============================");
-                foreach (var e in contexto.ChangeTracker.Entries())
-                {
-                    Console.WriteLine(e.State);
-                }
-
-                //contexto.SaveChanges();
-
-                //Console.WriteLine("==============================");
-                //produtos = contexto.Produtos.ToList();
-                //foreach (var p in produtos)
-                //{
-                //    Console.WriteLine(p);
-                //}
-
-
-
+                ExibeEntries(contexto.ChangeTracker.Entries());
 
             }
 
-            Console.WriteLine("feito");
+            Console.WriteLine("                  ...feito...                ");
             Console.ReadLine();
         }
 
-
+        private static void ExibeEntries(IEnumerable<EntityEntry> entries)
+        {
+            Console.WriteLine("==============================");
+            foreach (var e in entries)
+            {
+                Console.WriteLine(e.Entity.ToString() + "-" + e.State);
+            }
+        }
     }
 }
