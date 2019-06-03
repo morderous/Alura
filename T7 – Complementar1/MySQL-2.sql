@@ -47,7 +47,7 @@ WHERE
             matricula
         WHERE
             matricula.aluno_id = aluno.id
-                AND matricula.data > NOW() - INTERVAL 45 day);    
+                AND matricula.data > NOW() - INTERVAL 45 DAY);
                 
 
 /* exercicios */
@@ -56,7 +56,7 @@ SELECT
     *
 FROM
     aluno
-LIMIT 0 , 2;  
+LIMIT 0 , 2;
 
 SELECT 
     *
@@ -64,7 +64,7 @@ FROM
     aluno
 WHERE
     email LIKE '%.com'
-LIMIT 0 , 2;    	
+LIMIT 0 , 2;	
 
 SELECT 
     *
@@ -72,9 +72,8 @@ FROM
     aluno
 WHERE
     email LIKE '%.com'
-ORDER BY
-	nome
-LIMIT 0 , 2; 
+ORDER BY nome
+LIMIT 0 , 2;
 
 SELECT 
     *
@@ -82,37 +81,128 @@ FROM
     aluno
 WHERE
     nome LIKE '%Silva%'
-ORDER BY
-	nome;  
+ORDER BY nome;
 
 /*Exiba a média das notas por curso.*/    
-select c.nome, avg(n.nota)
-from curso c
-join matricula m on m.curso_id = c.id
-join aluno a on m.aluno_id = a.id
-join secao s on s.curso_id = m.curso_id
-join exercicio e on s.id = e.secao_id
-join resposta r on e.id = r.exercicio_id
-join nota n on r.id = n.resposta_id
-group by c.nome;
+SELECT 
+    c.nome, AVG(n.nota)
+FROM
+    curso c
+        JOIN
+    matricula m ON m.curso_id = c.id
+        JOIN
+    aluno a ON m.aluno_id = a.id
+        JOIN
+    secao s ON s.curso_id = m.curso_id
+        JOIN
+    exercicio e ON s.id = e.secao_id
+        JOIN
+    resposta r ON e.id = r.exercicio_id
+        JOIN
+    nota n ON r.id = n.resposta_id
+GROUP BY c.nome;
 
 
 /*Exiba o nome do curso e a quantidade de matrículas, agrupadas por curso. Use a tabela matricula.*/
-select c.nome, count(m.id) 
-from matricula m 
-join curso c on m.curso_id = c.id
-group by c.nome;
+SELECT 
+    c.nome, COUNT(m.id)
+FROM
+    matricula m
+        JOIN
+    curso c ON m.curso_id = c.id
+GROUP BY c.nome;
 
 /* Devolva o curso e as médias de notas, levando em conta somente alunos que tenham "Silva" ou "Santos" no sobrenome. */
-select c.nome, avg(n.nota)
-from curso c
-join matricula m on m.curso_id = c.id
-join aluno a on m.aluno_id = a.id
-join secao s on s.curso_id = m.curso_id
-join exercicio e on s.id = e.secao_id
-join resposta r on e.id = r.exercicio_id
-join nota n on r.id = n.resposta_id
-where a.nome like '%silva%' or a.nome like'%Santos'
-group by c.nome;
+SELECT 
+    c.nome, AVG(n.nota)
+FROM
+    curso c
+        JOIN
+    matricula m ON m.curso_id = c.id
+        JOIN
+    aluno a ON m.aluno_id = a.id
+        JOIN
+    secao s ON s.curso_id = m.curso_id
+        JOIN
+    exercicio e ON s.id = e.secao_id
+        JOIN
+    resposta r ON e.id = r.exercicio_id
+        JOIN
+    nota n ON r.id = n.resposta_id
+WHERE
+    a.nome LIKE '%silva%'
+        OR a.nome LIKE '%Santos'
+GROUP BY c.nome;
+
+/*Conte a quantidade de respostas por exercício. Exiba a pergunta e o número de respostas.*/
+
+SELECT 
+    e.pergunta, COUNT(r.id)
+FROM
+    resposta r
+        JOIN
+    exercicio e ON r.exercicio_id = e.id
+GROUP BY e.id
+ORDER BY COUNT(r.id) DESC;
+
+/* Podemos agrupar por mais de um campo de uma só vez. Por exemplo, se quisermos a média de notas por aluno por curso, podemos fazer GROUP BY aluno.id, curso.id.*/
+
+SELECT 
+    a.nome, c.nome, AVG(n.nota)
+FROM
+    curso c
+        JOIN
+    matricula m ON m.curso_id = c.id
+        JOIN
+    aluno a ON m.aluno_id = a.id
+        JOIN
+    secao s ON s.curso_id = m.curso_id
+        JOIN
+    exercicio e ON s.id = e.secao_id
+        JOIN
+    resposta r ON e.id = r.exercicio_id
+        JOIN
+    nota n ON r.id = n.resposta_id
+GROUP BY a.id, c.id;
+
+/* Devolva todos os alunos, cursos e a média de suas notas. Lembre-se de agrupar por aluno e por curso. Filtre também pela nota: só mostre alunos com nota média menor do que 5.*/
+SELECT 
+    a.nome, c.nome, AVG(n.nota)
+FROM
+    nota n
+        JOIN
+    resposta r ON r.id = n.resposta_id
+        JOIN
+    exercicio e ON e.id = r.exercicio_id
+        JOIN
+    secao s ON s.id = e.secao_id
+        JOIN
+    curso c ON c.id = s.curso_id
+        JOIN
+    aluno a ON a.id = r.aluno_id
+GROUP BY c.nome , a.nome
+HAVING AVG(n.nota) < 5;
+
+/*Exiba todos os cursos e a sua quantidade de matrículas. Contudo, exiba somente cursos que tenham mais de uma matrícula.*/
+SELECT 
+    c.nome, COUNT(m.id)
+FROM
+    matricula m
+        JOIN
+    curso c ON m.curso_id = c.id
+GROUP BY c.nome
+having
+count(m.id) >=1;
+
+/*Exiba o nome do curso e a quantidade de seções que existe nele. Mostre só cursos com mais de 3 seções.*/
+select c.nome, count(s.id)
+from curso c 
+join secao s on s.curso_id = c.id
+group by c.nome
+having count(s.id) > 3;
+
+
+
+
 
             
