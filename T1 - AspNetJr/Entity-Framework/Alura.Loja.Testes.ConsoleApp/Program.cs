@@ -36,7 +36,19 @@ namespace Alura.Loja.Testes.ConsoleApp
                 contexto.Compras.Add(compra);
 
                 contexto.SaveChanges();
+
+                Console.ReadLine();
+
             }
+        }
+
+        private static void ExibeEntries(IEnumerable<EntityEntry> entries)
+        {
+            foreach (var e in entries)
+            {
+                Console.WriteLine(e.Entity.ToString() + " - " + e.State);
+            }
+
         }
     }
 }
