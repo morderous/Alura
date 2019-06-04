@@ -201,8 +201,67 @@ join secao s on s.curso_id = c.id
 group by c.nome
 having count(s.id) > 3;
 
+desc matricula;
 
+select distinct tipo from matricula;
 
+select c.nome, count(m.id) from 
+curso c join matricula m on c.id = m.curso_id
+where m.tipo IN ('PAGA_PF', 'PAGA_PJ')
+group by c.nome;
 
+/*Traga todas as perguntas e a quantidade de respostas de cada uma. Mas dessa vez, somente dos cursos com ID 1 e 3.*/
+select e.pergunta, r.resposta_dada  
+from secao s 
+join exercicio e on s.id = e.secao_id
+join resposta r on e.id = r.exercicio_id
+join curso c on s.curso_id = c.id
+where c.id in (1, 3)
+group by e.pergunta;
 
+/* Exiba a média das notas por aluno, além de uma coluna com a diferença entre a média do aluno e a média geral. Use sub-queries para isso. */
+SELECT 
+    a.nome,
+    AVG(n1.nota) AS media,
+    AVG(n1.nota) - (SELECT 
+            AVG(n2.nota)
+        FROM
+            nota n2
+                JOIN
+            resposta r2 ON n2.resposta_id = r2.id
+        WHERE
+            r2.aluno_id <> a.id) 
+            AS diferenca
+FROM
+    nota n1
+        JOIN
+    resposta r ON r.id = n1.resposta_id
+        JOIN
+    exercicio e ON e.id = r.exercicio_id
+        JOIN
+    secao s ON s.id = e.secao_id
+        JOIN
+    aluno a ON a.id = r.aluno_id
+    where
+a.id in (select aluno_id from matricula where data < now() - interval 3 month)
+group by  a.nome;
+
+/* */
             
+select c.nome, count(m.id) 'Matriculas',(select count(m.id) from matricula m join curso c on m.curso_id = c.id)-count(m.id) 'diferença' 
+    from matricula m
+	join curso c on m.curso_id = c.id
+	group by c.nome;
+    
+    /* */
+    select c.nome, count(m.id), 
+count(m.id)/(select count(id) from matricula m)
+from curso c join matricula m on m.curso_id = c.id
+group by c.nome;
+
+select a.nome, r.resposta_dada from 
+aluno a left join resposta r on a.id = r.aluno_id;
+
+select a.nome, r.resposta_dada from 
+aluno a left join resposta r on a.id = r.aluno_id
+and r.exercicio_id = 1
