@@ -1,0 +1,21 @@
+<style type="text/css">
+.top {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.sidebar {
+    float: left;
+    width: 200px;
+    background-color: rgb(100, 158, 66);
+    padding: 10px;
+}
+.content {
+    float: left;
+    padding: 12px;
+}
+.footer {
+    text-align: center;
+    padding: 50px;
+}
+</style>
