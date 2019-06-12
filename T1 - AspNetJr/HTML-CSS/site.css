@@ -11,8 +11,9 @@ body {
     padding: 25px;
     margin: 0px;
     border-bottom: 10px solid black;
+    text-transform: uppercase;
 }
-h1, h2 {
+.titulo, .titulo-nav, h2 {
     font-family: "Open Sans Condensed" , sans-serif;
 }
 p {
@@ -20,7 +21,7 @@ p {
     line-height: 20px 0px;
     margin: 20px 0;
 }
-.recomendacoes {
+.recomendacoes1, .recomendacoes2 {
     background-color: #D9E5E3;
     padding: 20px 40px;
     border: 10px solid #C2CCCA;
@@ -31,13 +32,23 @@ p {
     border-bottom-color: #333;
     border-top-color: #333;
 }
+.recomendacoes1{
+  float: right;
+  margin-right: 0px;
+}
+.recomendacoes2{
+  float: left;
+  margin-left: 0px;
+}
 aside{
     background-color: #3C1D3D;
     color: #F2FFFC;
     text-align: center;
+    clear: right;
 }
 nav a {
     color: #F2FFFC;
+    text-transform: lowercase;
 }
 main a {
     color: #851944;
@@ -64,9 +75,10 @@ footer {
 nav ul {
     list-style-type:none;
 }
-aside h1 {
+.titulo-nav {
     font-size: 30px;
     margin-bottom: 25px;
+    text-transform: uppercase;
 }
 strong {
     font-weight: bold;
@@ -78,6 +90,7 @@ em {
 
 h2 {
     font-size: 30px;
+    clear: both;
 }
 .icones-redes-sociais li{
   display: inline-block;
@@ -101,4 +114,43 @@ article {
     text-align: center;
     background-color: #E6E7E8;
 
+}
+.icones-redes-sociais a{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+}
+.github{
+  background-image: url(github.png);
+}
+.twitter{
+  background-image: url(twitter.png);
+}
+.linkedin{
+  background-image: url(linkedin.png);
+}
+aside, img{
+  float: right;
+  width: 15%;
+  box-sizing: border-box;
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
+}
+img{
+  border-bottom: 10px solid black;
+}
+main{
+  float: left;
+  width: 85%;
+}
+footer{
+  clear:both;
+}
+aside{
+  width: 255px;
+}
+cite{
+  float:right;
+  font-style: italic;
 }
