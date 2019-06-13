@@ -3,12 +3,53 @@ border: 8px solid black;
 background-color: #FAFFFC;
 padding: 16px 16px;
 position:absolute;
-top: 230px;
-left: 410px;
+top: 240px;
+left: 440px;
 width: 250px;
 }
 .bmwimg{
-
+object-fit: scale-down;
+width: 200px;
+margin: 20px;
+}
+.uolblock{
+border: 8px solid black;
+background-color: #FAFFFC;
+padding: 16px 16px;
+position:absolute;
+top: 240px;
+left: 760px;
+width: 250px;
+}
+.uolimg{
+object-fit: scale-down;
+width: 200px;
+margin: 20px;
+}
+.ibmblock{
+border: 8px solid black;
+background-color: #FAFFFC;
+padding: 16px 16px;
+position:absolute;
+top: 515px;
+left: 440px;
+width: 250px;
+}
+.ibmimg{
+object-fit: scale-down;
+width: 200px;
+margin: 20px;
+}
+.g1block{
+border: 8px solid black;
+background-color: #FAFFFC;
+padding: 16px 16px;
+position:absolute;
+top: 515px;
+left: 760px;
+width: 250px;
+}
+.g1img{
 object-fit: scale-down;
 width: 200px;
 margin: 20px;
