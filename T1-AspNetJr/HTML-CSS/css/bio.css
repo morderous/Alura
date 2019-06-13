@@ -1,0 +1,23 @@
+.recomendacoes1, .recomendacoes2 {
+    background-color: #D9E5E3;
+    padding: 20px 40px;
+    border: 10px solid #C2CCCA;
+    width: 250px;
+    margin: 20px 40px;
+    width: 250px;
+    box-sizing: border-box;
+    border-bottom-color: #333;
+    border-top-color: #333;
+}
+.recomendacoes1{
+  float: right;
+  margin-right: 0px;
+}
+.recomendacoes2{
+  float: left;
+  margin-left: 0px;
+}
+cite{
+  float:right;
+  font-style: italic;
+}
