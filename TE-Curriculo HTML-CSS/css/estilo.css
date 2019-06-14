@@ -1,7 +1,10 @@
-body {
+body, .dados {
     font-family: "Crimson Text", serif;
     background-color: #F2FFFC;
     line-height: 1.5;
+}
+body{
+margin-bottom: 200px;
 }
 .titulo {
     background-color: #0fb8dd;
@@ -27,10 +30,12 @@ body {
       line-height: 20px 0px;
       margin: 20px 0;
   }
-  img{
-    float: left;
+  .foto-perfil{
     object-fit: scale-down;
-    width: 15%;
+    width: 310px;
+    position: absolute;
+    border-top: 0px;
+    border-left: 0px;
     border-bottom: 5px solid #000000;
     border-right: 5px solid #000000;
     box-sizing: border-box;
@@ -45,61 +50,65 @@ body {
       font-family: "Open Sans Condensed" , sans-serif;
       margin: 30px;
   }
-  .csharp{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    text-align: justify;
+.dados{
+  background-color: #a8d2db;
+  width: 200px;
+  height: 280px;
+  position: absolute;
+  top: 325px;
+  left: 30px;
+  border: 2px solid black;
+  padding: 20px;
   }
-  .java{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-left: 30px;
-    text-align: justify;
-  }
-  .html{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-left: 30px;
-    text-align: justify;
-  }
-  .css{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-left: 30px;
-    text-align: justify;
-  }
-  .sql{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-left: 30px;
-    text-align: justify;
-    clear: right;
-  }
-  .ingles{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-top: 30px;
-    margin-left: 100px;
-    margin-right: 30px;
-    text-align: center;
-  }
-  .delphi{
-    background-color: #a8d2db;
-    border:  2px solid #000000;
-    padding: 15px 30px;
-    float: left;
-    margin-top: 30px;
-    text-align: center;
-  }
+.title-list{
+font-weight: bolder;
+text-decoration: underline;
+line-height: 1;
+}
+.email{
+  position: relative;
+  top: 30px;
+}
+.endereco{
+  position: relative;
+  top: 60px;
+}
+.nascimento{
+  position: relative;
+  top: 90px;
+}
+.githubimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 5px;
+}
+.linkedinimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 65px;
+}
+.facebookimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 125px;
+}
+.instagramimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 185px;
+}
+.twitterimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 245px;
+}

@@ -1,0 +1,35 @@
+.githubimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 5px;
+}
+.linkedinimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 65px;
+}
+.facebookimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 125px;
+}
+.instagramimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 185px;
+}
+.twitterimg{
+  object-fit: scale-down;
+  width: 50px;
+  position: absolute;
+  top: 665px;
+  left: 245px;
+}
