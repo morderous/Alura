@@ -1,4 +1,4 @@
-body, .dados {
+body, .dados, footer {
     font-family: "Crimson Text", serif;
     background-color: #F2FFFC;
     line-height: 1.5;
@@ -43,6 +43,7 @@ margin-bottom: 200px;
   main{
     float: right;
     width: 85%;
+    margin-bottom: 200px;
   }
   h2 {
       font-size: 30px;
@@ -77,38 +78,14 @@ line-height: 1;
   position: relative;
   top: 90px;
 }
-.githubimg{
-  object-fit: scale-down;
-  width: 50px;
-  position: absolute;
-  top: 665px;
-  left: 5px;
-}
-.linkedinimg{
-  object-fit: scale-down;
-  width: 50px;
-  position: absolute;
-  top: 665px;
-  left: 65px;
-}
-.facebookimg{
-  object-fit: scale-down;
-  width: 50px;
-  position: absolute;
-  top: 665px;
-  left: 125px;
-}
-.instagramimg{
-  object-fit: scale-down;
-  width: 50px;
-  position: absolute;
-  top: 665px;
-  left: 185px;
-}
-.twitterimg{
-  object-fit: scale-down;
-  width: 50px;
-  position: absolute;
-  top: 665px;
-  left: 245px;
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 5px;
+    background-color: black;
+    color: #F2FFFC;
+
 }
