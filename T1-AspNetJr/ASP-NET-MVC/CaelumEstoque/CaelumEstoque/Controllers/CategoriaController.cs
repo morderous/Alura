@@ -27,5 +27,10 @@ namespace CaelumEstoque.Controllers
 
             return RedirectToAction("Index", "Categoria");
         }
+
+        public ActionResult Form()
+        {
+            return View();
+        }
     }
 }
