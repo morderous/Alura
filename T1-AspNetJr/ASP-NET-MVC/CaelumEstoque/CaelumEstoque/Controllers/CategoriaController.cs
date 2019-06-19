@@ -11,6 +11,7 @@ namespace CaelumEstoque.Controllers
     public class CategoriaController : Controller
     {
         // GET: Categoria
+        [Route("categorias", Name = "ListaCategorias")]
         public ActionResult Index()
         {
             CategoriasDAO dao = new CategoriasDAO();
@@ -31,6 +32,16 @@ namespace CaelumEstoque.Controllers
         public ActionResult Form()
         {
             return View();
+        }
+
+        [Route("categorias/{id}", Name = "VisualizaCategoria")]
+        public ActionResult Visualiza(int id)
+        {
+            CategoriasDAO dao = new CategoriasDAO();
+            CategoriaDoProduto categoria = dao.BuscaPorId(id);
+            ViewBag.Produto = categoria;
+            return View();
+
         }
     }
 }
