@@ -1,6 +1,7 @@
 ﻿using System;
 using CursoDesignPatterns.Impostos;
 using CursoDesignPatterns.Investimentos;
+using CursoDesignPatterns.Requisitions;
 
 namespace CursoDesignPatterns
 {
@@ -8,14 +9,19 @@ namespace CursoDesignPatterns
     {
         static void Main(string[] args)
         {
-            MostraDescontos();
 
             //MostraImpostos();
             //Console.WriteLine("###########################################");
             //MostraInvestimentos();
-            
+            //MostraDescontos();
+            MostraResposta();
 
             Console.ReadKey();
+        }
+
+        private static void MostraResposta()
+        {
+            Conta c = new Conta("Ricardo", 500);
         }
 
         private static void MostraDescontos()
@@ -42,16 +48,16 @@ namespace CursoDesignPatterns
             Investimento conservador = new Convervador();
             Investimento moderado = new Moderado();
 
-            Saldo saldo = new Saldo(25000.00);
+            Conta conta = new Conta("Andre",25000.00);
 
             CalculadorDeInvestimentos calculador = new CalculadorDeInvestimentos();
 
-            Console.WriteLine("Saldo inicial: " + saldo.Valor);
-            calculador.RealizaCalculo(saldo, arrojado);
+            Console.WriteLine(conta.Titular + " Saldo inicial: " + conta.Saldo);
+            calculador.RealizaCalculo(conta, arrojado);
             Console.WriteLine("-------------------------------------");
-            calculador.RealizaCalculo(saldo, conservador);
+            calculador.RealizaCalculo(conta, conservador);
             Console.WriteLine("-------------------------------------");
-            calculador.RealizaCalculo(saldo, moderado);
+            calculador.RealizaCalculo(conta, moderado);
             Console.WriteLine("-------------------------------------");
 
         }

@@ -7,10 +7,10 @@ namespace CursoDesignPatterns
 {
     public class Convervador : Investimento
     {
-        public double Calcula(Saldo saldo)
+        public double Calcula(Conta conta)
         {
             Console.WriteLine("Investimento com retorno de 0.8%:");
-            return (saldo.Valor * 0.008);
+            return (conta.Saldo * 0.008);
         }
     }
 }

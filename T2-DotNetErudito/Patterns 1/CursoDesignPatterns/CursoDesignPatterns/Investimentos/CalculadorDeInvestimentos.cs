@@ -6,9 +6,9 @@ namespace CursoDesignPatterns.Investimentos
 {
     class CalculadorDeInvestimentos
     {
-        public void RealizaCalculo(Saldo saldo, Investimento investimento)
+        public void RealizaCalculo(Conta conta, Investimento investimento)
         {
-            double valor = investimento.Calcula(saldo);
+            double valor = investimento.Calcula(conta);
             Console.WriteLine(valor);
         }
     }

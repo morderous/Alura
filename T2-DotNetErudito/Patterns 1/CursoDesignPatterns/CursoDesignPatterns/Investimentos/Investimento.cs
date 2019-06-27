@@ -7,6 +7,6 @@ namespace CursoDesignPatterns.Investimentos
     interface Investimento
 
     {
-        double Calcula(Saldo saldo);
+        double Calcula(Conta conta);
     }
 }
