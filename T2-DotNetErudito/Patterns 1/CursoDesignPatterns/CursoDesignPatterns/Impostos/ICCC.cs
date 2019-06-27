@@ -10,16 +10,16 @@ namespace CursoDesignPatterns
         {
             if (orcamento.Valor < 1000.00)
             {
+                Console.WriteLine("5% de imposto:");
                 return orcamento.Valor * 0.05;
             }
-            else if (orcamento.Valor >= 1000.00 && orcamento.Valor <= 3000.00)
+            if (orcamento.Valor >= 1000.00 && orcamento.Valor <= 3000.00)
             {
+                Console.WriteLine("7% de imposto:");
                 return orcamento.Valor * 0.07;
             }
-            else
-            {
-                return orcamento.Valor * 0.08 + 30;
-            }
+            Console.WriteLine("8% de imposto: R$ 30.00:");
+            return orcamento.Valor * 0.08 + 30;
         }
     }
 }

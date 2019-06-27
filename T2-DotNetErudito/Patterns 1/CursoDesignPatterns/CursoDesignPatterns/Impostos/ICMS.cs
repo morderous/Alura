@@ -4,11 +4,12 @@ using System.Text;
 
 namespace CursoDesignPatterns
 {
-    public class ISS : Imposto
+    public class ICMS : Imposto
     {
         public double Calcula(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.06;
+            Console.WriteLine("5% de imposto + R$ 50.00:");
+            return (orcamento.Valor * 0.05) + 50;
         }
     }
 }
