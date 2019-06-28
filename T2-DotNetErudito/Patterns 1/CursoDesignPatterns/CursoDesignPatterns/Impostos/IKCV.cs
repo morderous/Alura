@@ -8,7 +8,7 @@ namespace CursoDesignPatterns.Impostos
     {
         public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
-            return (orcamento.Valor > 500 && TemItemMaiorQue100Reais(orcamento));
+            return orcamento.Valor > 500 && TemItemMaiorQue100Reais(orcamento);
         }
 
         public override double MaximaTaxacao(Orcamento orcamento)
@@ -21,7 +21,7 @@ namespace CursoDesignPatterns.Impostos
             return orcamento.Valor * 0.06;
         }
 
-        private bool TemItemMaiorQue100Reais(Orcamento orcamento)
+         private bool TemItemMaiorQue100Reais(Orcamento orcamento)
         {
             foreach (Item item in orcamento.Itens)
             {
@@ -29,9 +29,8 @@ namespace CursoDesignPatterns.Impostos
                 {
                     return true;
                 }
-
-                return false;
             }
+            return false;
         }
     }
 }

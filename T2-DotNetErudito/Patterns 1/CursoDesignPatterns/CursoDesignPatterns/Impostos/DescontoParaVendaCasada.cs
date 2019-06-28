@@ -10,8 +10,8 @@ namespace CursoDesignPatterns.Impostos
 
         bool Existe(Orcamento orcamento)
         {
-             bool lapis = false;
-             bool caneta = false;
+             var lapis = false;
+             var caneta = false;
             foreach (Item item in orcamento.Itens)
             {
                 if (item.Nome.Contains("Lapis"))
@@ -27,7 +27,7 @@ namespace CursoDesignPatterns.Impostos
         {
             if (Existe(orcamento))
             {
-            return orcamento.Valor * 0.05;
+                return orcamento.Valor * 0.05;
             }
             return Proximo.Desconta(orcamento);
             

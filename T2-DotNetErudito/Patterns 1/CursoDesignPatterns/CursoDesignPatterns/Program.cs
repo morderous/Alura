@@ -14,14 +14,32 @@ namespace CursoDesignPatterns
             //Console.WriteLine("###########################################");
             //MostraInvestimentos();
             //MostraDescontos();
-            MostraResposta();
+            //MostraResposta();
+            MostraImpostos2();
 
             Console.ReadKey();
         }
 
+        private static void MostraImpostos2()
+        {
+            TemplateDeImpostoCondicional ikcv = new IKCV();
+            TemplateDeImpostoCondicional iccp = new ICPP();
+            TemplateDeImpostoCondicional ihit = new IHIT();
+            Orcamento orcamento = new Orcamento(1000);
+            orcamento.AdicionaItem(new Item("Lapis", 1000));
+            orcamento.AdicionaItem(new Item("Caneta", 250));
+            orcamento.AdicionaItem(new Item("Bolsa", 250));
+            orcamento.AdicionaItem(new Item("Lapis", 1000));
+            CalculadorDeImpostos calculador = new CalculadorDeImpostos();
+            //calculador.RealizaCalculo(orcamento, ikcv);
+            //calculador.RealizaCalculo(orcamento, iccp);
+            calculador.RealizaCalculo(orcamento, ihit);
+
+        }
+
         private static void MostraResposta()
         {
-            Conta c = new Conta("Ricardo", 500);
+            Conta c = new Conta("Ricardo", 500, "1203", "4000");
         }
 
         private static void MostraDescontos()
@@ -48,7 +66,7 @@ namespace CursoDesignPatterns
             Investimento conservador = new Convervador();
             Investimento moderado = new Moderado();
 
-            Conta conta = new Conta("Andre",25000.00);
+            Conta conta = new Conta("Andre",25000.00, "12300","23091023");
 
             CalculadorDeInvestimentos calculador = new CalculadorDeInvestimentos();
 
