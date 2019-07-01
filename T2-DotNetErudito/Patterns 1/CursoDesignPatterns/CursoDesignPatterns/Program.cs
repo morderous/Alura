@@ -39,7 +39,7 @@ namespace CursoDesignPatterns
 
         private static void MostraResposta()
         {
-            Conta c = new Conta("Ricardo", 500, "1203", "4000");
+            Conta c = new Conta("Ricardo", 500, "1203", "4000", DateTime.Now);
         }
 
         private static void MostraDescontos()
@@ -66,7 +66,7 @@ namespace CursoDesignPatterns
             Investimento conservador = new Convervador();
             Investimento moderado = new Moderado();
 
-            Conta conta = new Conta("Andre",25000.00, "12300","23091023");
+            Conta conta = new Conta("Andre",25000.00, "12300","23091023", DateTime.Now);
 
             CalculadorDeInvestimentos calculador = new CalculadorDeInvestimentos();
 

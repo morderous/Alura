@@ -10,13 +10,15 @@ namespace CursoDesignPatterns
         public double Saldo { get; private set; }
         public string Agencia { get; private set; }
         public string Numero { get; private set; }
+        public DateTime DataAbertura { get; private set; }
 
-        public Conta(string titular, double saldo, string agencia, string numero)
+        public Conta(string titular, double saldo, string agencia, string numero, DateTime dataAbertura)
         {
             this.Titular = titular;
             this.Saldo = saldo;
             this.Agencia = agencia;
             this.Numero = numero;
+            this.DataAbertura = dataAbertura;
         }
     }
 }
