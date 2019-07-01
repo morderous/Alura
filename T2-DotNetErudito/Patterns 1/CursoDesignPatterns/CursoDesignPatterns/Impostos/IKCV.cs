@@ -13,12 +13,12 @@ namespace CursoDesignPatterns.Impostos
 
         public override double MaximaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.10;
+            return orcamento.Valor * 0.15 + CalculaoDoOutroImposto(orcamento);
         }
 
         public override double MinimaTaxacao(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.06;
+            return orcamento.Valor * 0.06 + CalculaoDoOutroImposto(orcamento);
         }
 
          private bool TemItemMaiorQue100Reais(Orcamento orcamento)
@@ -32,5 +32,8 @@ namespace CursoDesignPatterns.Impostos
             }
             return false;
         }
+
+         public IKCV(Imposto outroImposto) : base(outroImposto) { }
+         public IKCV() { }
     }
 }

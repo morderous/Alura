@@ -6,10 +6,12 @@ namespace CursoDesignPatterns
 {
     public class ISS : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public override double Calcula(Orcamento orcamento)
         {
-            Console.WriteLine("6% de imposto:");
-            return orcamento.Valor * 0.06;
+            return orcamento.Valor * 0.06 + CalculaoDoOutroImposto(orcamento);
         }
+
+        public ISS(Imposto outroImposto) : base(outroImposto) { }
+        public ISS() { }
     }
 }

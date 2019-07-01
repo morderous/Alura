@@ -6,10 +6,13 @@ namespace CursoDesignPatterns
 {
     public class ICMS : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public override double Calcula(Orcamento orcamento)
         {
-            Console.WriteLine("5% de imposto + R$ 50.00:");
-            return (orcamento.Valor * 0.05) + 50;
+            return (orcamento.Valor * 0.05) + 50 + CalculaoDoOutroImposto(orcamento);
         }
+
+        public ICMS(Imposto outroImposto) : base(outroImposto) { }
+
+        public ICMS() { }
     }
 }

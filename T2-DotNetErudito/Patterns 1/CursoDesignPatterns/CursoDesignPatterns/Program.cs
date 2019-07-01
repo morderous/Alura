@@ -10,30 +10,30 @@ namespace CursoDesignPatterns
         static void Main(string[] args)
         {
 
-            //MostraImpostos();
+            MostraImpostos2();
             //Console.WriteLine("###########################################");
             //MostraInvestimentos();
             //MostraDescontos();
             //MostraResposta();
-            MostraImpostos2();
+            //MostraImpostos2();
 
             Console.ReadKey();
         }
 
         private static void MostraImpostos2()
         {
-            TemplateDeImpostoCondicional ikcv = new IKCV();
-            TemplateDeImpostoCondicional iccp = new ICPP();
-            TemplateDeImpostoCondicional ihit = new IHIT();
+            //Imposto iss = new ISS(new ICMS(new IHIT()));
+            Imposto impo = new ImpostoMuitoAlto(new IKCV());
             Orcamento orcamento = new Orcamento(1000);
             orcamento.AdicionaItem(new Item("Lapis", 1000));
             orcamento.AdicionaItem(new Item("Caneta", 250));
             orcamento.AdicionaItem(new Item("Bolsa", 250));
             orcamento.AdicionaItem(new Item("Lapis", 1000));
+            orcamento.AdicionaItem(new Item("borracha", 1000));
             CalculadorDeImpostos calculador = new CalculadorDeImpostos();
             //calculador.RealizaCalculo(orcamento, ikcv);
             //calculador.RealizaCalculo(orcamento, iccp);
-            calculador.RealizaCalculo(orcamento, ihit);
+            calculador.RealizaCalculo(orcamento, impo);
 
         }
 
@@ -82,22 +82,15 @@ namespace CursoDesignPatterns
 
         private static void MostraImpostos()
         {
-            Imposto iss = new ISS();
-            Imposto icms = new ICMS();
-            Imposto iccc = new ICCC();
+            Imposto iss = new ISS(new ICMS(new IHIT()));
 
             Orcamento orcamento = new Orcamento(10000.00);
 
             CalculadorDeImpostos calculador = new CalculadorDeImpostos();
 
-            Console.WriteLine("Orçamento: " + orcamento.Valor);
             calculador.RealizaCalculo(orcamento, iss);
-            Console.WriteLine("-------------------------------------");
-            calculador.RealizaCalculo(orcamento, icms);
-            Console.WriteLine("-------------------------------------");
-            calculador.RealizaCalculo(orcamento, iccc);
-            Console.WriteLine("-------------------------------------");
         }
+
     }
 }
 

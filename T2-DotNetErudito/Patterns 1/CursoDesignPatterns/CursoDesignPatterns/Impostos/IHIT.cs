@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CursoDesignPatterns.Impostos
 {
-     class IHIT : TemplateDeImpostoCondicional
+    class IHIT : TemplateDeImpostoCondicional
     {
         public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
