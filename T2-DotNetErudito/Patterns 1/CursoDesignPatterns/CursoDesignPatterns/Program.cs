@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
 using CursoDesignPatterns.Impostos;
 using CursoDesignPatterns.Investimentos;
+using CursoDesignPatterns.NotaFiscal;
+using CursoDesignPatterns.NotaFiscal;
 using CursoDesignPatterns.Requisitions;
 
 namespace CursoDesignPatterns
@@ -10,14 +13,43 @@ namespace CursoDesignPatterns
         static void Main(string[] args)
         {
 
-            MostraImpostos2();
-            //Console.WriteLine("###########################################");
-            //MostraInvestimentos();
-            //MostraDescontos();
-            //MostraResposta();
-            //MostraImpostos2();
+            MotraNotaFiscal();
 
             Console.ReadKey();
+        }
+
+        private static void MotraNotaFiscal()
+        {
+            NotaFiscalBuilder criador = new NotaFiscalBuilder();
+
+            criador.ParaEmpresa("Empresa 1")
+                .ComCnpj("12039102930193")
+                .ComItem(new ItemDaNota("Lapis", 100.00))
+                .ComItem(new ItemDaNota("caneta", 1000.00))
+                .NaDataAtual()
+                .ComObservacoes("obs qualquer");
+
+            NotaFiscal.NotaFiscal nf =  criador.Constroi();
+
+            Console.WriteLine(nf.Itens.Count);
+            Console.WriteLine(nf.ValorBruto);
+            Console.WriteLine(nf.Impostos);
+        }
+
+        private static void MostraEstado()
+        {
+            Orcamento reforma = new Orcamento(5000);
+            Console.WriteLine(reforma.Valor);
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor);
+            reforma.Aprova();
+
+            reforma.AplicaDescontoExtra();
+            Console.WriteLine(reforma.Valor);
+
+            reforma.Finaliza();
+
         }
 
         private static void MostraImpostos2()
